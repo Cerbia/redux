@@ -1,18 +1,18 @@
 import uuid from uuid
 
-const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 //kreatory akcji
 function addComment(text) {
 	return ({
 		type: 'ADD_COMMENT',
-		id: uuid.v4(),
+		id: uuid.v4()
 		text
 	});
 }
 
 
-const EDIT_COMMENT = 'EDIT_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
 
 function editComment(id, text) {
 	return ({
@@ -23,7 +23,7 @@ function editComment(id, text) {
 }
 
 
-const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 function removeComment(id) {
 	return ({
@@ -33,7 +33,7 @@ function removeComment(id) {
 }
 
 
-const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 
 function thumbUpComment(id) {
 	return ({
@@ -44,7 +44,7 @@ function thumbUpComment(id) {
 }
 
 
-const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 function thumbDownComment(id) {
 	return({
@@ -54,8 +54,20 @@ function thumbDownComment(id) {
 	});
 }
 
+export const ADD_USER = 'ADD_USER';
+
+function addUser(firstName, lastName) {
+	return ({
+		type: 'ADD_USER',
+		id: uuid.v4(),
+		firstName: firstName,
+		lastName: lastName
+	});
+}
+
 //dispatch(addComment('New comment'));
 // bindActionCreators
+//lol - co z tym zrobić?
 const boundAddComment = text => dispatch(addComment(text));
 const boundEditComment = (id, text) => dispatch(editComment(id, text));
 const boundRemoveComment = id => dispatch(removeComment(id));
